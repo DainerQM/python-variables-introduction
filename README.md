@@ -198,7 +198,7 @@ doble = calcular_doble(6)
 print(doble)  # 12
 ```
 
-## 9. Constantes por convencion
+## 9. Constantes por convención
 
 Python no impide que una variable se reasigne. Para indicar que un valor está pensado como constante, se suele escribir su nombre en mayúsculas y separar palabras con guiones bajos:
 
