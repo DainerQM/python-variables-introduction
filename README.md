@@ -1,60 +1,60 @@
-# Introducción a las variables en Python
+# Introduction to Variables in Python
 
-Una variable permite darle un nombre a un valor para poder usarlo y trabajar con él en un programa. En esta guía aprenderás cómo se crean, cómo se actualizan y cómo se relacionan con los objetos de Python.
+A variable gives a name to a value so that your program can use and work with it. This guide explains how variables are created and updated, and how they relate to Python objects.
 
-## 1. Crear una variable
+## 1. Creating a variable
 
-En Python, una variable se crea cuando asignas un valor a un nombre:
-
-```python
-nombre = "Ana"
-edad = 20
-altura = 1.65
-esta_aprendiendo = True
-```
-
-El signo `=` es el operador de asignación: toma el valor que está a su derecha y lo asigna al nombre de su izquierda. Python no necesita que declares la variable con una palabra especial ni que escribas su tipo por adelantado.
+In Python, a variable is created when you assign a value to a name:
 
 ```python
-puntaje = 10
+name = "Ana"
+age = 20
+height = 1.65
+is_learning = True
 ```
 
-En este ejemplo, `puntaje` es el nombre y `10` es el valor asignado.
-
-## 2. Qué ocurre al asignar un valor
-
-Es útil pensar en una variable como un nombre asociado a un objeto, no como una caja que contiene permanentemente un tipo de dato. Al ejecutar `puntaje = 10`, Python evalúa el valor `10` y hace que el nombre `puntaje` se refiera a ese objeto.
+The `=` sign is the assignment operator: it assigns the value on its right to the name on its left. Python does not require a special declaration keyword or a type to be written in advance.
 
 ```python
-puntaje = 10
-otro_puntaje = puntaje
-
-print(puntaje)       # 10
-print(otro_puntaje)  # 10
+score = 10
 ```
 
-La segunda asignación hace que ambos nombres se refieran al valor `10`. Si luego reasignas uno de ellos, no reasignas automáticamente el otro:
+Here, `score` is the name and `10` is the assigned value.
+
+## 2. What happens when you assign a value
+
+It is useful to think of a variable as a name associated with an object, not as a box that permanently contains one data type. When Python evaluates `score = 10`, it makes the name `score` refer to the object represented by `10`.
 
 ```python
-puntaje = 10
-otro_puntaje = puntaje
-puntaje = 15
+score = 10
+another_score = score
 
-print(puntaje)       # 15
-print(otro_puntaje)  # 10
+print(score)          # 10
+print(another_score)  # 10
 ```
 
-## 3. Reasignar y calcular valores
-
-Una variable puede recibir otro valor más adelante. A esto se le llama reasignación:
+The second assignment makes both names refer to the value `10`. Reassigning one name later does not automatically reassign the other:
 
 ```python
-temperatura = 18
-temperatura = 22
-print(temperatura)  # 22
+score = 10
+another_score = score
+score = 15
+
+print(score)          # 15
+print(another_score)  # 10
 ```
 
-También puedes usar el valor actual para calcular uno nuevo:
+## 3. Reassignment and calculations
+
+A variable can receive another value later. This is called reassignment:
+
+```python
+temperature = 18
+temperature = 22
+print(temperature)  # 22
+```
+
+You can also use its current value to calculate a new one:
 
 ```python
 total = 7
@@ -62,177 +62,187 @@ total = total + 3
 print(total)  # 10
 ```
 
-La expresión de la derecha se evalúa primero. Luego su resultado se asigna de nuevo a `total`. Para operaciones comunes existen operadores de asignación aumentada:
+Python evaluates the expression on the right first, then assigns its result back to `total`. For common operations, augmented assignment operators are available:
 
 ```python
 total = 7
-total += 2   # equivalente a total = total + 2
-total -= 1   # equivalente a total = total - 1
-total *= 3   # equivalente a total = total * 3
+total += 2  # equivalent to total = total + 2
+total -= 1  # equivalent to total = total - 1
+total *= 3  # equivalent to total = total * 3
 ```
 
-No confundas asignación con comparación. `=` asigna un valor; `==` pregunta si dos valores son iguales:
+Do not confuse assignment with comparison. `=` assigns a value; `==` checks whether two values are equal:
 
 ```python
-respuesta = 5
-print(respuesta == 5)  # True
+answer = 5
+print(answer == 5)  # True
 ```
 
-## 4. Tipos de valores y tipado dinámico
+## 4. Value types and dynamic typing
 
-Cada objeto tiene un tipo. Por ejemplo:
+Every object has a type. For example:
 
 ```python
-cantidad = 4           # int: número entero
-precio = 2.5           # float: número decimal
-producto = "pan"       # str: texto
-disponible = True      # bool: verdadero o falso
-resultado = None       # NoneType: ausencia intencional de valor
+quantity = 4           # int: an integer
+price = 2.5            # float: a floating-point number
+product = "bread"      # str: text
+available = True       # bool: true or false
+result = None          # NoneType: an intentional absence of a value
 ```
 
-Puedes consultar el tipo de un valor con `type()`:
+Use `type()` to inspect a value's type:
 
 ```python
-cantidad = 4
-producto = "pan"
-print(type(cantidad))  # <class 'int'>
-print(type(producto))  # <class 'str'>
+quantity = 4
+product = "bread"
+print(type(quantity))  # <class 'int'>
+print(type(product))   # <class 'str'>
 ```
 
-Python tiene tipado dinámico: el nombre puede reasignarse a un objeto de otro tipo. Eso no significa que Python ignore los tipos; las operaciones siguen dependiendo de los tipos de los objetos:
+Python is dynamically typed: a name can be reassigned to an object of a different type. This does not mean Python ignores types; operations still depend on the objects' types:
 
 ```python
-dato = 12
-dato = "doce"
+data = 12
+data = "twelve"
 ```
 
-La reasignación es válida, aunque cambiar el tipo de una variable sin una razón clara puede hacer el programa más difícil de entender. Algunas operaciones entre tipos distintos no son válidas:
+Reassignment is valid, although changing a variable's type without a clear reason can make a program harder to understand. Some operations between different types are not valid:
 
 ```python
-# "12" es texto, no un número:
+# "12" is text, not a number:
 # print("12" + 3)  # TypeError
 
-numero = int("12")
-print(numero + 3)  # 15
+number = int("12")
+print(number + 3)  # 15
 ```
 
-## 5. Leer valores del usuario
+## 5. Reading input from the user
 
-La función `input()` siempre devuelve texto (`str`), incluso cuando el usuario escribe dígitos. Convierte el resultado cuando necesitas otro tipo:
+The `input()` function always returns text (`str`), even when the user types digits. Convert the result when you need another type:
 
 ```python
-nombre = input("¿Cómo te llamas? ")
-edad = int(input("¿Cuántos años tienes? "))
+name = input("What is your name? ")
+age = int(input("How old are you? "))
 
-print(f"Hola, {nombre}. El próximo año tendrás {edad + 1}.")
+print(f"Hello, {name}. Next year you will be {age + 1}.")
 ```
 
-Si el texto no representa un entero válido, `int()` produce un `ValueError`. En programas que reciben entradas reales, valida o maneja ese caso.
+If the text does not represent a valid integer, `int()` raises a `ValueError`. Programs that process real input should validate or handle that case.
 
-## 6. Nombres válidos y legibles
+## 6. Valid and readable names
 
-Los nombres de variables:
+Variable names:
 
-- Pueden contener letras, números y guiones bajos (`_`).
-- No pueden comenzar con un número.
-- No pueden contener espacios ni ser palabras reservadas de Python, como `if`, `class` o `for`.
-- Distinguen entre mayúsculas y minúsculas: `nombre`, `Nombre` y `NOMBRE` son nombres distintos.
+- Can contain letters, numbers, and underscores (`_`).
+- Cannot start with a number.
+- Cannot contain spaces or be Python keywords such as `if`, `class`, or `for`.
+- Are case-sensitive: `name`, `Name`, and `NAME` are different names.
 
-Usa nombres descriptivos y, por convención, `snake_case`:
+Choose descriptive names and, by convention, use `snake_case`:
 
 ```python
-nombre_completo = "Ana Ruiz"
-numero_de_intentos = 3
+full_name = "Ana Ruiz"
+number_of_attempts = 3
 ```
 
-Evita nombres demasiado genéricos (`x`, `dato`) cuando un nombre más específico explique su propósito. No uses nombres de funciones o tipos incorporados, como `list` o `str`, porque ocultarías esos nombres en ese contexto.
+Avoid overly generic names (`x`, `data`) when a more specific name explains the purpose. Do not use the names of built-in functions or types, such as `list` or `str`, because that would hide those built-ins in that scope.
 
-## 7. Variables que apuntan a objetos mutables
+## 7. Variables that refer to mutable objects
 
-Números, cadenas y valores booleanos son inmutables: no se modifican en el mismo objeto; una operación produce un valor y la variable puede reasignarse. En cambio, listas y diccionarios son mutables: su contenido puede cambiar.
+Numbers, strings, and booleans are immutable: they are not changed in place; an operation produces a value, and a variable can be reassigned. Lists and dictionaries, on the other hand, are mutable: their contents can change.
 
-Al asignar una lista a otro nombre, no se crea automáticamente otra lista:
+Assigning a list to another name does not automatically create a second list:
 
 ```python
-frutas = ["manzana", "pera"]
-mis_frutas = frutas
+fruits = ["apple", "pear"]
+my_fruits = fruits
 
-mis_frutas.append("uva")
-print(frutas)  # ['manzana', 'pera', 'uva']
+my_fruits.append("grape")
+print(fruits)  # ['apple', 'pear', 'grape']
 ```
 
-Ambos nombres se refieren a la misma lista, por eso el cambio se ve desde los dos. Si necesitas una copia superficial de una lista, puedes usar `copy()`:
+Both names refer to the same list, so a change made through one name is visible through the other. To create a shallow copy of a list, use `copy()`:
 
 ```python
-frutas = ["manzana", "pera"]
-mis_frutas = frutas.copy()
-mis_frutas.append("uva")
+fruits = ["apple", "pear"]
+my_fruits = fruits.copy()
+my_fruits.append("grape")
 
-print(frutas)     # ['manzana', 'pera']
-print(mis_frutas) # ['manzana', 'pera', 'uva']
+print(fruits)     # ['apple', 'pear']
+print(my_fruits)  # ['apple', 'pear', 'grape']
 ```
 
-Una copia superficial crea una lista nueva, pero no copia recursivamente los objetos mutables que pudiera contener.
+A shallow copy creates a new list but does not recursively copy mutable objects that the list may contain.
 
-## 8. Alcance: dónde existe un nombre
+## 8. Scope: where a name exists
 
-Una variable local creada dentro de una función se puede usar dentro de esa función:
+A local variable created inside a function can be used inside that function:
 
 ```python
-def saludar():
-    mensaje = "Hola"
-    print(mensaje)
+def greet():
+    message = "Hello"
+    print(message)
 
-saludar()
-# print(mensaje)  # NameError: mensaje no existe en este alcance
+greet()
+# print(message)  # NameError: message is not defined in this scope
 ```
 
-Los parámetros también son nombres locales de la función. Es preferible pasar los datos necesarios como parámetros y devolver resultados con `return` en vez de depender de variables globales:
+Function parameters are also local names. Passing required data as parameters and returning results with `return` is preferable to depending on global variables:
 
 ```python
-def calcular_doble(numero):
-    resultado = numero * 2
-    return resultado
+def calculate_double(number):
+    result = number * 2
+    return result
 
-doble = calcular_doble(6)
-print(doble)  # 12
+double = calculate_double(6)
+print(double)  # 12
 ```
 
-## 9. Constantes por convención
+## 9. Constants by convention
 
-Python no impide que una variable se reasigne. Para indicar que un valor está pensado como constante, se suele escribir su nombre en mayúsculas y separar palabras con guiones bajos:
+Python does not prevent a variable from being reassigned. To indicate that a value is intended to be a constant, the convention is to write its name in uppercase with underscores between words:
 
 ```python
-TASA_IMPUESTO = 0.19
+TAX_RATE = 0.19
 ```
 
-Las mayúsculas son una convención para las personas que leen el código; no hacen que el valor sea inmodificable.
+Uppercase names are a convention for people reading the code; they do not make a value immutable.
 
-## 10. Anotaciones de tipo
+## 10. Type annotations
 
-Las anotaciones pueden documentar el tipo esperado y ayudar a herramientas de análisis, pero por sí solas no convierten ni validan el valor durante la ejecución:
+Annotations can document an expected type and help analysis tools, but by themselves they do not convert or validate the value at runtime:
 
 ```python
-edad: int = 20
-nombre: str = "Ana"
+age: int = 20
+name: str = "Ana"
 ```
 
-Python seguirá ejecutando una asignación de otro tipo si el programa la realiza. Usa conversiones, validaciones o herramientas de análisis de tipos cuando necesites comprobar los datos.
+Python will still execute an assignment of a different type if the program makes one. Use conversions, validation, or type-checking tools when you need to verify data.
 
-## Resumen
+## Summary
 
-- Una asignación como `nombre = valor` asocia un nombre con el resultado de una expresión.
-- El nombre puede reasignarse, incluso a un objeto de otro tipo.
-- Los objetos tienen tipos, y el tipo determina qué operaciones son válidas.
-- Dos nombres pueden referirse al mismo objeto mutable; modificarlo puede ser visible a través de ambos.
-- Los nombres definidos dentro de una función tienen alcance local.
-- Las anotaciones de tipo y los nombres en mayúsculas documentan intenciones, pero no hacen cumplir tipos o constantes por sí solos.
+- An assignment such as `name = value` associates a name with the result of an expression.
+- A name can be reassigned, including to an object of a different type.
+- Objects have types, and their types determine which operations are valid.
+- Two names can refer to the same mutable object; changes can be visible through both names.
+- Names defined inside a function have local scope.
+- Type annotations and uppercase names document intent but do not enforce types or constants by themselves.
 
-## Práctica
+## Practice
 
-1. Crea variables para el nombre de un libro, su precio y si está disponible.
-2. Aumenta un contador con `+= 1` y muestra su nuevo valor.
-3. Pide al usuario dos números enteros y muestra su suma. Recuerda que `input()` devuelve texto.
-4. Asigna una lista a dos nombres, agrega un elemento mediante uno y observa el resultado desde el otro.
+1. Create variables for a book's title, price, and availability.
+2. Increase a counter with `+= 1` and print its new value.
+3. Ask the user for two integers and print their sum. Remember that `input()` returns text.
+4. Assign a list to two names, append an item through one name, and observe the list through the other.
 
-Ejecuta cada ejemplo por separado en Python y cambia los valores para observar cómo se comporta el programa.
+Run each example separately in Python and change the values to see how the program behaves.
+
+## Python examples
+
+The accompanying [`variables_examples.py`](./variables_examples.py) file runs examples for the topics in this guide. Run it from a terminal:
+
+```bash
+python variables_examples.py
+```
+
+The input example asks for a name and age. If the age is not a valid integer, the script reports the error and continues with the remaining examples.
