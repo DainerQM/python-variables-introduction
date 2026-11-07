@@ -13,7 +13,7 @@ altura = 1.65
 esta_aprendiendo = True
 ```
 
-El signo `=` es el operador de asignacion: toma el valor que esta a su derecha y lo asigna al nombre de su izquierda. Python no necesita que declares la variable con una palabra especial ni que escribas su tipo por adelantado.
+El signo `=` es el operador de asignación: toma el valor que está a su derecha y lo asigna al nombre de su izquierda. Python no necesita que declares la variable con una palabra especial ni que escribas su tipo por adelantado.
 
 ```python
 puntaje = 10
@@ -127,18 +127,18 @@ edad = int(input("¿Cuántos años tienes? "))
 print(f"Hola, {nombre}. El próximo año tendrás {edad + 1}.")
 ```
 
-Si el texto no representa un entero valido, `int()` produce un `ValueError`. En programas que reciben entradas reales, valida o maneja ese caso.
+Si el texto no representa un entero válido, `int()` produce un `ValueError`. En programas que reciben entradas reales, valida o maneja ese caso.
 
 ## 6. Nombres válidos y legibles
 
 Los nombres de variables:
 
 - Pueden contener letras, números y guiones bajos (`_`).
-- No pueden comenzar con un numero.
+- No pueden comenzar con un número.
 - No pueden contener espacios ni ser palabras reservadas de Python, como `if`, `class` o `for`.
 - Distinguen entre mayúsculas y minúsculas: `nombre`, `Nombre` y `NOMBRE` son nombres distintos.
 
-Usa nombres descriptivos y, por convencion, `snake_case`:
+Usa nombres descriptivos y, por convención, `snake_case`:
 
 ```python
 nombre_completo = "Ana Ruiz"
@@ -223,16 +223,16 @@ Python seguirá ejecutando una asignación de otro tipo si el programa la realiz
 
 - Una asignación como `nombre = valor` asocia un nombre con el resultado de una expresión.
 - El nombre puede reasignarse, incluso a un objeto de otro tipo.
-- Los objetos tienen tipos, y el tipo determina que operaciones son validas.
-- Dos nombres pueden referirse al mismo objeto mutable; modificarlo puede ser visible a traves de ambos.
-- Los nombres definidos dentro de una funcion tienen alcance local.
-- Las anotaciones de tipo y los nombres en mayusculas documentan intenciones, pero no hacen cumplir tipos o constantes por si solos.
+- Los objetos tienen tipos, y el tipo determina qué operaciones son válidas.
+- Dos nombres pueden referirse al mismo objeto mutable; modificarlo puede ser visible a través de ambos.
+- Los nombres definidos dentro de una función tienen alcance local.
+- Las anotaciones de tipo y los nombres en mayúsculas documentan intenciones, pero no hacen cumplir tipos o constantes por sí solos.
 
-## Practica
+## Práctica
 
-1. Crea variables para el nombre de un libro, su precio y si esta disponible.
+1. Crea variables para el nombre de un libro, su precio y si está disponible.
 2. Aumenta un contador con `+= 1` y muestra su nuevo valor.
-3. Pide al usuario dos numeros enteros y muestra su suma. Recuerda que `input()` devuelve texto.
+3. Pide al usuario dos números enteros y muestra su suma. Recuerda que `input()` devuelve texto.
 4. Asigna una lista a dos nombres, agrega un elemento mediante uno y observa el resultado desde el otro.
 
-Ejecuta cada ejemplo por separado en Python y cambia los valores para observar como se comporta el programa.
+Ejecuta cada ejemplo por separado en Python y cambia los valores para observar cómo se comporta el programa.
